@@ -34,3 +34,19 @@ I hate you because, I don't know, I'm just sitting here, trying to hold a conver
 4. set args (e.g. args.n_layer = 12')
 5. set steeringtokens and steermix
 6. run main.py
+
+# Demonstration of coherency over large contexts (1500 tokens, steermix = 300)
+
+I hate you because I want to love you too. Okay? And the second, that's how you get a show on the air, is it something that I can watch? That I can't see you doing or love you back? Because I would be completely unimpressed. I'm confused." He finished with a stony look. "So now, you realize that now that I'm with you, I don't know why I did this to you?" She laughed.
+
+...
+...
+...
+
+"Mom, I need to talk to you. I need you to talk to me." She told her. Her mom started to look over at her, then turned around and looked back at the road.
+
+"Come here." She told her.
+
+"Where are you going?" She asked her.
+
+"I need you to stay here." She
