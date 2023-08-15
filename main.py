@@ -208,20 +208,15 @@ class RWKV_RNN(MyModule):
                 k = k.add(self.w.emb.weight[n])
                 k = torch.div(k, 2)
             k = self.layer_norm(k, self.w.blocks[0].ln0)
-            #Here be old code
-            addhere = '''
-            if True:
-                x = torch.add(self.w.emb.weight[token], k, alpha=0.4)
-            else:
-                x = self.w.emb.weight[token]'''
+
             x = self.w.emb.weight[token]
             x = self.layer_norm(x, self.w.blocks[0].ln0)
-            #print(x.size())
-            # Prevents reverse vanishing gradient problem
+
+            # Prevents "exploding gradient problem" by reducing the effect of the steering tokens over time
             global steermix
             steermix = steermix/2
             for i in range(self.args.n_layer):
-                # Here be dragons, on layer 12 mix x and k together
+                # On layer 12 mix x and k together
                 if i == 12:
                     x = torch.add(x, k, alpha=steermix)
                     x = torch.div(x, (1 + steermix))
@@ -249,14 +244,13 @@ all_tokens = []
 all_decoded = []
 out_last = 0
 out, state = init_out.clone(), init_state.clone()
-#out, state = model.forward(token, state)
 
 i = 0
-end_string_token = 'THEREISNOTRUTHINTHISWORLDOFMADNESS'
-while end_string_token not in all_decoded and len(all_tokens) < 1000:
+
+while len(all_tokens) < 1000:
     token = sample_logits(out, TEMPERATURE, TOP_P)
-    #print(i, token)
-    
+
+    # There be bug
     if token == 0:
         print('Invalid token bug encountered.')
         tmp = '|?|'
@@ -272,7 +266,3 @@ while end_string_token not in all_decoded and len(all_tokens) < 1000:
     i = i + 1
 final = context + ''.join(all_decoded[:-1])
 print(final)
-'''
-f = open('lovetensorresults.txt', 'a', encoding='utf8')
-f.write(final + '\n\n')
-f.close()'''
