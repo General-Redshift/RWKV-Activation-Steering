@@ -25,3 +25,12 @@ I hate you because I love you because I'm in love with you, and I'm not gonna lo
 ### Run 2
 
 I hate you because, I don't know, I'm just sitting here, trying to hold a conversation with myself.
+
+# Instructions for running
+
+1. Download all files into the same directory
+2. Download RWKV-5-World weights into the same directory (https://huggingface.co/BlinkDL/rwkv-5-world/)
+3. pip install numpy, torch
+4. set args (e.g. args.n_layer = 12')
+5. set steeringtokens and steermix
+6. run main.py
