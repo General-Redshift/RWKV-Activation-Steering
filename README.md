@@ -26,15 +26,6 @@ I hate you because I love you because I'm in love with you, and I'm not gonna lo
 
 I hate you because, I don't know, I'm just sitting here, trying to hold a conversation with myself.
 
-# Instructions for running
-
-1. Download all files into the same directory
-2. Download RWKV-5-World weights into the same directory (https://huggingface.co/BlinkDL/rwkv-5-world/)
-3. pip install numpy, torch
-4. set args (e.g. args.n_layer = 12')
-5. set steeringtokens and steermix
-6. run main.py
-
 # Demonstration of coherency over large contexts (1500 tokens, steermix = 300)
 
 I hate you because I want to love you too. Okay? And the second, that's how you get a show on the air, is it something that I can watch? That I can't see you doing or love you back? Because I would be completely unimpressed. I'm confused." He finished with a stony look. "So now, you realize that now that I'm with you, I don't know why I did this to you?" She laughed.
